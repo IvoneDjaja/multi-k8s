@@ -12,15 +12,15 @@ jobs:
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
       - run: docker build -t cygnetops/react-test -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true cygnetops/react-test npm test
-      - run: docker build -t ivonedjaja/multi-client-10-14 ./client
-      - run: docker build -t ivonedjaja/multi-nginx-10-14 ./nginx
-      - run: docker build -t ivonedjaja/multi-server-10-14 ./server
-      - run: docker build -t ivonedjaja/multi-worker-10-14 ./worker
+      - run: docker build -t mariaivoneiradjaja/multi-client-10-14 ./client
+      - run: docker build -t mariaivoneiradjaja/multi-nginx-10-14 ./nginx
+      - run: docker build -t mariaivoneiradjaja/multi-server-10-14 ./server
+      - run: docker build -t mariaivoneiradjaja/multi-worker-10-14 ./worker
  
-      - run: docker push ivonedjaja/multi-client-10-14
-      - run: docker push ivonedjaja/multi-nginx-10-14
-      - run: docker push ivonedjaja/multi-server-10-14
-      - run: docker push ivonedjaja/multi-worker-10-14
+      - run: docker push mariaivoneiradjaja/multi-client-10-14
+      - run: docker push mariaivoneiradjaja/multi-nginx-10-14
+      - run: docker push mariaivoneiradjaja/multi-server-10-14
+      - run: docker push mariaivoneiradjaja/multi-worker-10-14
  
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
