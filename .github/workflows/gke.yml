@@ -2,9 +2,10 @@ name: Deploy React app to GKE
 
 on:
   workflow_run:
-    workflows: Frontend unit tests
+    workflows: ["Frontend unit tests"]
     branches: [master]
-    types: completed
+    types:
+      - completed
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
