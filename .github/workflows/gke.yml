@@ -31,15 +31,15 @@ jobs:
         run: echo ::set-output name=tag::$(echo ${GITHUB_SHA:10})
       - name: Running deploy script
         run: |-
-          docker build -t stephengrider/multi-client:latest -t stephengrider/multi-client:${{steps.vars.outputs.tag}} -f ./client/Dockerfile ./client
-          docker build -t stephengrider/multi-server:latest -t stephengrider/multi-server:${{steps.vars.outputs.tag}} -f ./server/Dockerfile ./server
-          docker build -t stephengrider/multi-worker:latest -t stephengrider/multi-worker:${{steps.vars.outputs.tag}} -f ./worker/Dockerfile ./worker
-          docker push stephengrider/multi-client:latest
-          docker push stephengrider/multi-server:latest
-          docker push stephengrider/multi-worker:latest
-          docker push stephengrider/multi-client:${{steps.vars.outputs.tag}}
-          docker push stephengrider/multi-server:${{steps.vars.outputs.tag}}
-          docker push stephengrider/multi-worker:${{steps.vars.outputs.tag}}
+          docker build -t mariaivoneiradjaja/multi-client:latest -t mariaivoneiradjaja/multi-client:${{steps.vars.outputs.tag}} -f ./client/Dockerfile ./client
+          docker build -t mariaivoneiradjaja/multi-server:latest -t mariaivoneiradjaja/multi-server:${{steps.vars.outputs.tag}} -f ./server/Dockerfile ./server
+          docker build -t mariaivoneiradjaja/multi-worker:latest -t mariaivoneiradjaja/multi-worker:${{steps.vars.outputs.tag}} -f ./worker/Dockerfile ./worker
+          docker push mariaivoneiradjaja/multi-client:latest
+          docker push mariaivoneiradjaja/multi-server:latest
+          docker push mariaivoneiradjaja/multi-worker:latest
+          docker push mariaivoneiradjaja/multi-client:${{steps.vars.outputs.tag}}
+          docker push mariaivoneiradjaja/multi-server:${{steps.vars.outputs.tag}}
+          docker push mariaivoneiradjaja/multi-worker:${{steps.vars.outputs.tag}}
 
   setup-and-deploy:
     needs: publish-to-hub
